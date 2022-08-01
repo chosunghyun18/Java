@@ -1,0 +1,50 @@
+spring:
+  datasource:
+    url:
+    username:
+    password:
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username:
+    password: #checkgmail 2nd part app
+        
+    properties:
+      mail:
+        debug: false
+
+        smtp:
+          auth: true
+          starttls:
+            enable:  true
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+        dialect: org.hibernate.spatial.dialect.mysql.MySQL8SpatialDialect
+    database-platform: org.hibernate.spatial.dialect.mysql.MySQL8SpatialDialect
+    database: mysql
+
+
+
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  profiles:
+    include:
+      - aws
+      - credentials
+logging:
+  level:
+    org.hibernate.SQL: debug
+
